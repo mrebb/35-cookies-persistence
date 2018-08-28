@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
-import { addThing, addThingAsync } from '../store/thing';
+import { addThing, addThingAsync,fetchThingsAsync } from '../store/thing';
 
 class Dashboard extends Component {
-
+  componentDidMount(){
+    this.props.fetchThingsAsync();
+   }
   createRandomThing() {
     return { name: 'thing' + Math.floor(Math.random() * 100) };
   }
@@ -40,6 +42,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = ({ thingState }) => ({ things: thingState });
-const mapDispatchToProps = { addThing, addThingAsync };
+const mapDispatchToProps = { addThing, addThingAsync,fetchThingsAsync };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
