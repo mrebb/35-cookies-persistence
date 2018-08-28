@@ -1,36 +1,27 @@
 ![cf](http://i.imgur.com/7v5ASc8.png) 35: Cookies / Local Persistence
 ===
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-  * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas 
-
-## Requirements  
+## Documentation 
 #### backend/
-* clone [sluggram](http://github.com/slugbyte/sluggram) to your computer or use your week 5 project 
-* Will take some tweaks to make run locally. Figure them out.
+* modified version of [sluggram](http://github.com/slugbyte/sluggram)
 
 #### Configuration  
+* Start backend server using ```npm run watch``` inside server folder
+* Start React on frontend folder using ```npm start``` and run tests using ```npm test```
+
 ##### frontend/
-* **README.md** -- with documention about your lab
-* Follow standard conventions
- 
-#### Feature Tasks 
-* Create a frontend that follows react/redux best practices
-* Create a landing page that enables a user to signup or login 
-* Redirect the user to the dashboard page on signup or login 
-* Store the users token in a cookie ***or*** localstorage on sign in 
+* Basic application that allows user to signup and login to access dashboard
+* InProgress: Adding support for uploading photos to profile and view them later
+
+#### environment variables
+```
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/cookies-lab
+SECRET='hello'
+
+```
 
 #### Test
-* Test your redux reducers 
-* Test any util methods
+* Tested redux reducers 
+* Tested util methods
 
-## Stretch Goal
-* Create full crud for two resources 
-
-#### Documentation  
-Write a description of the project in your README.md, including detailed instructions for how to build your app. In your frontend README.md add a code block with your frontend .env vars, and in your backend README.md add a code block with your backend .env vars. 
