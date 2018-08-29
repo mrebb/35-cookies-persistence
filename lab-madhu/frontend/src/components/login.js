@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import {Link, Redirect} from 'react-router-dom'
 import { connect } from 'react-redux';
-import {fetchUserAsync,fetchAllUsers} from '../store/user'
+import {fetchAllUsers} from '../store/user'
+import {login} from '../store/auth'
 import cookie from 'react-cookies';
 class Login extends Component {
     constructor(props) {
@@ -20,8 +21,8 @@ class Login extends Component {
       }
       onSubmit = event => {
         event.preventDefault();
-        this.props.fetchUserAsync(this.state).then((response)=>{
-            cookie.save('Login-Cookie', response, { path: '/' });
+        this.props.login(this.state).then((token)=>{
+            cookie.save('Login-Cookie', token, { path: '/' });
             this.setState({ ...this.defaultState })
             this.setState({redirect: true}) 
     })
@@ -63,6 +64,6 @@ this.state.redirect && <Redirect to="/dashboard" />
     }
 }
 const mapStateToProps = ({ userState }) => ({ users: userState });
-const mapDispatchToProps = { fetchUserAsync,fetchAllUsers };
+const mapDispatchToProps = { login,fetchAllUsers };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -13,6 +13,7 @@ export default function reducer(state = defaultState, action) {
         ...state,
         payload
       ];
+      
     default: return state;
   }
 }
@@ -23,6 +24,7 @@ export function addUser(user) {
     payload: user
   }  
 }
+
 //Utils
 export function addUserAsync(user) {
 
